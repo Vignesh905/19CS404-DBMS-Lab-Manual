@@ -104,124 +104,166 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+Create a table named Products with the following constraints:
+
+* ProductID should be the primary key.
+* ProductName should be NOT NULL.
+* Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
 
 ```sql
--- Paste your SQL code below for Question 1
+CREATE TABLE Products(ProductID PRIMARY KEY,ProductName NOT NULL,Price real check(price>0),Stock INTEGER CHECK(Stock>=0));
 ```
 
 **Output:**
 
-![Output1](output.png)
+![alt text](image.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a table named Events with the following columns:
+
+* EventID as INTEGER
+* EventName as TEXT
+* EventDate as DATE
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE Events(EventID INTEGER,EventName TEXT,EventDate DATE);
 ```
 
 **Output:**
 
-![Output2](output.png)
+![alt text](image-1.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 3
+ALTER TABLE Student_details
+add column MobileNumber NUMBER;
+ALTER TABLE student_details
+add column Address VARCHAR(100);
 ```
 
 **Output:**
-
-![Output3](output.png)
+![alt text](image-2.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write an SQL query to add a new column salary of type INTEGER to the Employees table, with a CHECK constraint that ensures the value in this column is greater than 0.
 
 ```sql
--- Paste your SQL code below for Question 4
+ALTER TABLE Employees
+add column salary INTEGER check(salary>0);
 ```
 
 **Output:**
-
-![Output4](output.png)
+![alt text](image-3.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Create a table named Employees with the following constraints:
+
+* EmployeeID should be the primary key.
+* FirstName and LastName should be NOT NULL.
+* Email should be unique.
+* Salary should be greater than 0.
+* DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Employees(
+EmployeeID integer PRIMARY KEY,
+FirstName varchar(100) not null,
+LastName varchar(100) not null,
+Email varchar(100) unique,
+Salary decimal check(Salary>0),
+DepartmentID integer,
+foreign key (DepartmentID) references Departments(DepartmentID)
+);
 ```
 
 **Output:**
-
-![Output5](output.png)
+![alt text](image-4.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Insert the below data into the Customers table, allowing the City and ZipCode columns to take their default values.
+<pre>
+CustomerID  Name          Address
+----------  ------------  ----------
+304         Peter Parker  Spider St      
 
+Note: The City and ZipCode columns will use their default values.
+</pre>
 ```sql
--- Paste your SQL code below for Question 6
+INSERT INTO Customers(CustomerID,Name,Address) VALUES(304,'Peter Parker','Spider St');
 ```
 
 **Output:**
 
-![Output6](output.png)
+![alt text](image-5.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE jobs(
+job_id int PRIMARY KEY,
+job_title varchar(225) default'',
+min_salary int default 8000,
+max_salary int default null
+);
 ```
 
 **Output:**
+![alt text](image-6.png)
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
-
+Insert the following students into the Student_details table:
+<pre>
+RollNo      Name        Gender      Subject     MARKS
+----------  ----------  ----------  ----------  ----------
+202            Ella King         F           Chemistry   87
+203            James Bond   M          Literature    78
+</pre>
 ```sql
--- Paste your SQL code below for Question 8
+insert into Student_details(RollNo,Name,Gender,Subject,MARKS)VALUES(202,'Ella King','F','Chemistry',87),(203,'James Bond','M','Literature',78);
 ```
 
 **Output:**
-
-![Output8](output.png)
+![alt text](image-7.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+Create a table named Products with the following constraints:
+* ProductID as INTEGER should be the primary key.
+* ProductName as TEXT should be unique and not NULL.
+* Price as REAL should be greater than 0.
+* StockQuantity as INTEGER should be non-negative.
+For example:
 
 ```sql
--- Paste your SQL code below for Question 9
+CREATE TABLE Products(ProductID INTEGER PRIMARY KEY,ProductName TEXT unique NOT NULL,Price REAL CHECK(PRICE>0),StockQuantity INTEGER check(StockQuantity>0));
 ```
 
 **Output:**
 
-![Output9](output.png)
+![alt text](image-8.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert a product with ProductID 104, Name Tablet, and Category Electronics into the Products table, where Price and Stock should use default values.
 
 ```sql
--- Paste your SQL code below for Question 10
+INSERT into ProductS(ProductID,Name,Category,Price,Stock)values(104,'Tablet','Electronics',100,'50');
 ```
 
 **Output:**
-
-![Output10](output.png)
+![alt text](image-9.png)
 
 
 ## RESULT
