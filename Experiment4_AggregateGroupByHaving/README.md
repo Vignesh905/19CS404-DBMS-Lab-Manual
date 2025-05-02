@@ -38,123 +38,217 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+What is the most common diagnosis among patients?
+
+Sample table:MedicalRecords Table
+![alt text](image.png)
 
 ```sql
--- Paste your SQL code below for Question 1
+select Diagnosis, count(*) as 
+DiagnosisCount
+from MedicalRecords
+group by Diagnosis
+order by DiagnosisCount DESC
+LIMIT 1 ;
 ```
 
 **Output:**
-
-![Output1](output.png)
+![alt text](image-1.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+What is the count of male and female patients?
 
+Sample table: Patients Table
+![alt text](image-2.png)
 ```sql
--- Paste your SQL code below for Question 2
+SELECT Gender, count(*) as
+TotalPatients
+from Patients
+group by Gender;
 ```
 
 **Output:**
-
-![Output2](output.png)
+![alt text](image-3.png)
 
 **Question 3**
----
--- Paste Question 3 here
+How many patients are there in each city?
+
+Sample table: Patients Table
+![alt text](image-5.png)
 
 ```sql
--- Paste your SQL code below for Question 3
+select Address , count(*) as TotalPatients
+from Patients
+group by Address; 
 ```
 
 **Output:**
 
-![Output3](output.png)
+![alt text](image-6.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to find the total income of employees aged 40 or above.
+<pre>
+Table: employee
 
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
+</pre>
 ```sql
--- Paste your SQL code below for Question 4
+select SUM(income) as total_income
+from employee
+where age >=40;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![alt text](image-8.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to Calculate the average income of the employees with names starting with 'A': 
+<pre>
+Table: employee
 
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
+</pre>
 ```sql
--- Paste your SQL code below for Question 5
+select AVG(income) as avg_income
+from employee
+where name LIKE 'A%';
 ```
 
 **Output:**
 
-![Output5](output.png)
+![alt text](image-9.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find the maximum purchase amount.
+<pre>
+Sample table: orders
 
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+----------  ----------  ----------  -----------  -----------
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         500
+</pre>
 ```sql
--- Paste your SQL code below for Question 6
+SELECT MAX(purch_amt) as MAXIMUM
+FROM orders;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![alt text](image-10.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to find the average length of email addresses (in characters):
+<[re]>
+Table: customer
 
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+city        TEXT
+email       TEXT
+phone       INTEGER
+</pre>
 ```sql
--- Paste your SQL code below for Question 7
+SELECT AVG(LENGTH(email)) AS avg_email_length
+FROM customer;
 ```
 
 **Output:**
 
-![Output7](output.png)
+![alt text](image-11.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+How many patients are covered by each insurance company?
+<pre>
+Sample table:Insurance Table
 
+name               type
+-----------------  ----------
+InsuranceID        INTEGER
+PatientID          INTEGER
+InsuranceCompany   TEXT
+PolicyNumber       TEXT
+PolicyHolder       TEXT
+ValidityPeriod     TEXT
+</pre>
 ```sql
--- Paste your SQL code below for Question 8
+select InsuranceCompany, COUNT(DISTINCT PatientID)AS TotalPatients
+from Insurance
+group BY InsuranceCompany
 ```
 
 **Output:**
 
-![Output8](output.png)
+![alt text](image-12.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+What is the total number of medications prescribed for each patient?
+
+Sample tablePrescriptions Table
+![alt text](image-13.png)
 
 ```sql
--- Paste your SQL code below for Question 9
+select PatientID, COUNT(Medication) as TotalMedications
+from Prescriptions
+group by PatientID;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![alt text](image-14.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to find the minimum purchase amount.
+<pre>
+Sample table: orders
 
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+----------  ----------  ----------  -----------  -----------
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         5001
+</pre>
 ```sql
--- Paste your SQL code below for Question 10
+select min(purch_amt) as MINIMUM
+from orders;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![alt text](image-15.png)
 
 
 ## RESULT
