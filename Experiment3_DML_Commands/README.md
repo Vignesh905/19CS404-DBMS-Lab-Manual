@@ -47,123 +47,216 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to change the EMAIL and COMMISSION_PCT column of the following EMPLOYEES table with 'not available' and 0.55 for those employees whose DEPARTMENT_ID is 110.
+<pre>
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
+</pre>
 
 ```sql
--- Paste your SQL code below for Question 1
+update Employees
+set email = 'not available',COMMISSION_PCT = 0.55 where DEPARTMENT_ID = 110;
 ```
 
 **Output:**
+![alt text](image-1.png)
 
-![Output1](output.png)
 
 **Question 2**
----
--- Paste Question 2 here
 
+Write a SQL statement to Update the product_name to 'Premium Bread' whose product ID is 5 in the products table.
+<pre>
+Products table
+
+---------------
+product_id
+product_name
+category
+cost_price
+sell_price
+reorder_lvl
+quantity
+supplier_id
+</pre>
 ```sql
--- Paste your SQL code below for Question 2
+UPDATE Products 
+set product_name = 'Premium Bread'
+where product_id = 5;
 ```
 
 **Output:**
+![alt text](image-2.png)
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL statement to Update the hire_date of employees in department 50 to 2024-01-24.
+<pre>
+Employees table
 
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
+</pre>
 ```sql
--- Paste your SQL code below for Question 3
+UPDATE Employees
+set hire_date = '2024-01-24'
+where department_id = 50;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![alt text](image-3.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL statement to Double the salary for employees in department 20 who have a job_id ending with 'MAN'
+<pre>
+Employees table
 
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
+</pre>
 ```sql
--- Paste your SQL code below for Question 4
+update Employees set salary = salary * 2
+where department_id = 20 and job_id like '%MAN';
 ```
 
 **Output:**
 
-![Output4](output.png)
+![alt text](image-4.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to Delete customers with following conditions
+
+* 'CUST_COUNTRY' is not in a list of specified countries ('UK',
+ * 'USA', 'Canada')
+* 'GRADE' is greater than or equal to 3
 
 ```sql
--- Paste your SQL code below for Question 5
+delete from customer 
+where CUST_COUNTRY NOT IN ('UK','USA','canada')
+and grade >= 3;
 ```
 
 **Output:**
-
-![Output5](output.png)
+![alt text](image-5.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to Delete customers from 'customer' table where 'OPENING_AMT' is between 4000 and 6000.
 
 ```sql
--- Paste your SQL code below for Question 6
+delete from customer 
+where OPENING_AMT BETWEEN 4000 AND 6000;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![alt text](image-6.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Delete customers from 'customer' table where 'WORKING_AREA' is 'New York'.
 
 ```sql
--- Paste your SQL code below for Question 7
+DELETE from  customer 
+where WORKING_AREA = 'New York'
 ```
 
 **Output:**
 
-![Output7](output.png)
+![alt text](image-7.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to Delete All Doctors whose ID ranges from 2 to 4.
+
+Sample table: Doctors
+
+attributes : doctor_id, first_name, last_name, specialization
 
 ```sql
--- Paste your SQL code below for Question 8
+delete from Doctors
+where doctor_id between 2 and 4;
 ```
 
 **Output:**
 
-![Output8](output.png)
+![alt text](image-8.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Delete customers whose 'GRADE' is greater than 2 and have a 'PAYMENT_AMT' less than the average 'PAYMENT_AMT' for all customers, or whose 'OUTSTANDING_AMT' is greater than 8000:
 
 ```sql
--- Paste your SQL code below for Question 9
+delete from customer 
+where (GRADE > 2 AND PAYMENT_AMT < (SELECT AVG (PAYMENT_AMT) FROM CUSTOMER))
+OR OUTSTANDING_AMT > 8000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![alt text](image-9.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Select all patients who were admitted during the year 2023.
+<pre>
+Table: Patients
 
+name                  type
+--------------------  ----------
+patient_id            INT
+first_name            VARCHAR(50)
+last_name             VARCHAR(50)
+date_of_birth         DATE
+admission_date        DATE
+discharge_date        DATE
+doctor_id             INT
+</pre>
 ```sql
--- Paste your SQL code below for Question 10
+SELECT patient_id, first_name, admission_date
+FROM Patients
+where strftime('%Y',
+admission_date) = '2023';
 ```
 
 **Output:**
 
-![Output10](output.png)
+![alt text](image-10.png)
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
